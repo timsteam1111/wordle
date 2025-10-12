@@ -4,16 +4,13 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private GameObject mushroom;
     [SerializeField] private GameObject buttonStart;
-    [SerializeField] private GameObject buttonSettings;
-    [SerializeField] private GameObject buttonLanguedge;
-    [SerializeField] private GameObject settingsScreen;
-    [SerializeField] private GameObject buttonBackFromSettings;
+    [SerializeField] private GameObject screenMainMenu;
+    [SerializeField] private GameObject screenSetting;
     
     private void Start()
     {
-        buttonLanguedge.SetActive(false);
-        settingsScreen.SetActive(false);
-        buttonBackFromSettings.SetActive(false);
+        screenSetting.SetActive(false);
+        screenMainMenu.SetActive(true);
     }
     
     public void OnButtonStartClick()
@@ -24,21 +21,13 @@ public class Game : MonoBehaviour
     
     public void OnSettingsClick()
     {
-        mushroom.SetActive(false);
-        buttonStart.SetActive(false);
-        buttonBackFromSettings.SetActive(true);
-        buttonSettings.SetActive(false);
-        settingsScreen.SetActive(true);
-        buttonLanguedge.SetActive(true);
+        screenSetting.SetActive(true);
+        screenMainMenu.SetActive(false);
     }
     
     public void GoBackFromSettings()
     {
-        mushroom.SetActive(true);
-        buttonStart.SetActive(true);
-        buttonBackFromSettings.SetActive(false);
-        buttonSettings.SetActive(true);
-        settingsScreen.SetActive(false);
-        buttonLanguedge.SetActive(false);
+        screenSetting.SetActive(false);
+        screenMainMenu.SetActive(true);
     }
 }
