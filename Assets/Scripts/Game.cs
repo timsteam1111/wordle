@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Game : MonoBehaviour
 {
@@ -10,20 +8,20 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject buttonLanguedge;
     [SerializeField] private GameObject settingsScreen;
     [SerializeField] private GameObject buttonBackFromSettings;
-
+    
     private void Start()
     {
         buttonLanguedge.SetActive(false);
         settingsScreen.SetActive(false);
         buttonBackFromSettings.SetActive(false);
     }
-
+    
     public void OnButtonStartClick()
     {
         mushroom.SetActive(false);
         buttonStart.SetActive(false);
     }
-
+    
     public void OnSettingsClick()
     {
         mushroom.SetActive(false);
@@ -32,6 +30,15 @@ public class Game : MonoBehaviour
         buttonSettings.SetActive(false);
         settingsScreen.SetActive(true);
         buttonLanguedge.SetActive(true);
-
+    }
+    
+    public void GoBackFromSettings()
+    {
+        mushroom.SetActive(true);
+        buttonStart.SetActive(true);
+        buttonBackFromSettings.SetActive(false);
+        buttonSettings.SetActive(true);
+        settingsScreen.SetActive(false);
+        buttonLanguedge.SetActive(false);
     }
 }
