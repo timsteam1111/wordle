@@ -1,3 +1,4 @@
+using Localization;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -6,6 +7,12 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject buttonStart;
     [SerializeField] private GameObject screenMainMenu;
     [SerializeField] private GameObject screenSetting;
+    
+    [Space]
+    [SerializeField] private LocalizationData ru;
+    [SerializeField] private LocalizationData en;
+
+    private bool _isEnglish = true;
     
     private void Start()
     {
@@ -29,5 +36,11 @@ public class Game : MonoBehaviour
     {
         screenSetting.SetActive(false);
         screenMainMenu.SetActive(true);
+    }
+
+    public void OnLanguageClick()
+    {
+        _isEnglish = !_isEnglish;
+        LocalizationManager.Instance.SetLanguage(_isEnglish ? en : ru);
     }
 }
