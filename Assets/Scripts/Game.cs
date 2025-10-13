@@ -7,6 +7,8 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject buttonStart;
     [SerializeField] private GameObject screenMainMenu;
     [SerializeField] private GameObject screenSetting;
+    [SerializeField] private GameObject field;
+    [SerializeField] private GameObject backgroundField;
     
     [Space]
     [SerializeField] private LocalizationData ru;
@@ -18,12 +20,16 @@ public class Game : MonoBehaviour
     {
         screenSetting.SetActive(false);
         screenMainMenu.SetActive(true);
+        field.SetActive(false);
+        backgroundField.SetActive(false);
     }
     
     public void OnButtonStartClick()
     {
         mushroom.SetActive(false);
         buttonStart.SetActive(false);
+        field.SetActive(true);
+        backgroundField.SetActive(true);
     }
     
     public void OnSettingsClick()

@@ -20,3 +20,5 @@ MonoBehaviour:
     value: Language
   - key: back
     value: Go back
+  - key: settings
+    value: Settings
