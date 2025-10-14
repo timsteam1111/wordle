@@ -10,6 +10,8 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject field;
     [SerializeField] private GameObject backgroundField;
     [SerializeField] private GameObject firstLevelButton;
+    [SerializeField] private GameObject secounLevelButton;
+    [SerializeField] private GameObject thirdLevelButton;
     [SerializeField] private GameObject firstPlayingField;
     [SerializeField] private GameObject secoundPlayingField;
     [SerializeField] private GameObject thirdPlayingField;
@@ -28,6 +30,9 @@ public class Game : MonoBehaviour
         field.SetActive(false);
         backgroundField.SetActive(false);
         firstPlayingField.SetActive(false);
+        firstLevelButton.SetActive(false);
+        secounLevelButton.SetActive(false);
+        thirdLevelButton.SetActive(false);
     }
     
     public void OnButtonStartClick()
