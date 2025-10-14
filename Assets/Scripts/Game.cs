@@ -9,6 +9,11 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject screenSetting;
     [SerializeField] private GameObject field;
     [SerializeField] private GameObject backgroundField;
+    [SerializeField] private GameObject firstLevelButton;
+    [SerializeField] private GameObject firstPlayingField;
+    [SerializeField] private GameObject secoundPlayingField;
+    [SerializeField] private GameObject thirdPlayingField;
+    [SerializeField] private GameObject buttonBack;
     
     [Space]
     [SerializeField] private LocalizationData ru;
@@ -22,6 +27,7 @@ public class Game : MonoBehaviour
         screenMainMenu.SetActive(true);
         field.SetActive(false);
         backgroundField.SetActive(false);
+        firstPlayingField.SetActive(false);
     }
     
     public void OnButtonStartClick()
@@ -30,6 +36,7 @@ public class Game : MonoBehaviour
         buttonStart.SetActive(false);
         field.SetActive(true);
         backgroundField.SetActive(true);
+        firstLevelButton.SetActive(true);
     }
     
     public void OnSettingsClick()
@@ -48,5 +55,26 @@ public class Game : MonoBehaviour
     {
         _isEnglish = !_isEnglish;
         LocalizationManager.Instance.SetLanguage(_isEnglish ? en : ru);
+    }
+
+    public void OnFirstLevelButtonClick()
+    {
+        field.SetActive(false);
+        firstLevelButton.SetActive(field);
+        screenMainMenu.SetActive(false);
+        screenSetting.SetActive(false);
+        backgroundField.SetActive(true);
+        secoundPlayingField.SetActive(true);
+    }
+    public void ButtonForMe()
+    {
+        field.SetActive(false);
+        firstLevelButton.SetActive(false);
+        screenMainMenu.SetActive(true);
+        screenSetting.SetActive(false);
+        backgroundField.SetActive(false);
+        firstPlayingField.SetActive(false); 
+        mushroom.SetActive(true);
+        buttonStart.SetActive(true);
     }
 }
