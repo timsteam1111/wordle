@@ -21,12 +21,6 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject thirdLevelButton;
     [SerializeField] private GameObject firstPlayingField;
     [SerializeField] private GameObject buttonBack;
-    [SerializeField] private GameObject firstWord;
-    [SerializeField] private GameObject secoundWord;
-    [SerializeField] private GameObject thirdWord;
-    [SerializeField] private GameObject fourthWord;
-    [SerializeField] private GameObject fifthWord;
-    [SerializeField] private GameObject sixthWord;
     
     [Space]
     [SerializeField] private LocalizationData ru;
@@ -39,6 +33,7 @@ public class Game : MonoBehaviour
     [SerializeField] private List<Word> words;
 
     private bool _isEnglish = true;
+    private Word _currentWord;
 
     private void Awake()
     {
@@ -46,7 +41,8 @@ public class Game : MonoBehaviour
         {
             word.gameObject.SetActive(false);
         }
-        
+
+        _currentWord = words[0];
     }
 
     private void Start()
@@ -59,8 +55,6 @@ public class Game : MonoBehaviour
         firstLevelButton.SetActive(false);
         secoundLevelButton.SetActive(false);
         thirdLevelButton.SetActive(false);
-        
-        
 
         foreach (var letter in letters)
         {
@@ -70,9 +64,9 @@ public class Game : MonoBehaviour
 
     public IEnumerable Word { get; set; }
 
-    private void OnLetterPressed(char symbol)
+    private void OnLetterPressed(char letter)
     {
-        Debug.Log(symbol);
+        _currentWord.AddLetter(letter);
     }
     
     public void OnButtonStartClick()
